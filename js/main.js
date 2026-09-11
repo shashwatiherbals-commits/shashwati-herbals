@@ -41,4 +41,32 @@ document.addEventListener('DOMContentLoaded', function () {
       preload('assets/products/' + items[(i + 2) % items.length].slug + '.jpg');
     }, 2000);
   }
+
+  // Review carousel (home page only)
+  var reviewText = document.getElementById('reviewText');
+  var reviewProduct = document.getElementById('reviewProduct');
+  var reviewDots = document.getElementById('reviewDots');
+  if (reviewText && window.SITE_REVIEWS && window.SITE_REVIEWS.length > 1) {
+    var reviews = window.SITE_REVIEWS;
+    var ri = 0;
+    var dots = reviewDots ? reviewDots.children : [];
+
+    setInterval(function () {
+      ri = (ri + 1) % reviews.length;
+      var next = reviews[ri];
+      reviewText.style.opacity = '0';
+      if (reviewProduct) reviewProduct.style.opacity = '0';
+      setTimeout(function () {
+        reviewText.textContent = next.quote;
+        reviewText.style.opacity = '1';
+        if (reviewProduct) {
+          reviewProduct.textContent = next.product;
+          reviewProduct.style.opacity = '1';
+        }
+        for (var d = 0; d < dots.length; d++) {
+          dots[d].className = (d === ri) ? 'on' : '';
+        }
+      }, 350);
+    }, 4500);
+  }
 });

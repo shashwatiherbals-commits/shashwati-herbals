@@ -203,6 +203,40 @@ nav.main-nav a:hover, nav.main-nav a.active{
 }
 .strip-item .n{ color: var(--gold); font-weight:700; font-family: var(--font-body); font-size: 0.85rem; }
 
+/* ---------------- review carousel ---------------- */
+.reviews-band{
+  padding: 46px 0;
+  background: var(--paper);
+}
+.reviews-head{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin-bottom: 26px; text-align:center;
+}
+.reviews-head .stars{ display:flex; gap:3px; color: var(--gold); }
+.reviews-head .stars svg{ width:16px; height:16px; }
+.reviews-head p{ margin:0; font-size: 0.95rem; color: var(--ink-soft); }
+.review-carousel{
+  max-width: 640px; margin: 0 auto;
+  border: 1px solid var(--line);
+  background: var(--green-tint);
+  padding: 36px 44px;
+  text-align:center;
+  position:relative;
+  min-height: 150px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.review-carousel .quote-icon{ display:block; margin-bottom:12px; }
+.review-carousel .quote-icon svg{ width:30px; height:30px; color: var(--gold); }
+.review-carousel .review-text{
+  font-family: var(--font-display); font-style:italic; font-size: 1.15rem;
+  color: var(--green-deep); margin: 0 0 14px; transition: opacity .4s ease;
+  max-width: 60ch;
+}
+.review-carousel .review-product{ font-weight:700; font-size:0.82rem; letter-spacing:0.03em; text-transform:uppercase; color: var(--clay); transition: opacity .4s ease; }
+.review-dots{ display:flex; gap:7px; justify-content:center; margin-top:20px; }
+.review-dots span{ width:6px; height:6px; border-radius:50%; background: var(--line); transition: background .3s ease; }
+.review-dots span.on{ background: var(--gold); }
+
 /* ---------------- section headers ---------------- */
 .section-head{
   display:flex; justify-content:space-between; align-items:flex-end;
@@ -421,6 +455,7 @@ a:focus-visible, button:focus-visible{ outline: 2px solid var(--clay); outline-o
 @media (max-width: 900px){
   .hero{ padding-top: 26px; }
   .hero-grid{ grid-template-columns: 1fr; gap: 34px; }
+  .review-carousel{ padding: 28px 24px; }
   .hero-figure{ order:-1; aspect-ratio: 16/11; }
   .pricing-card{ grid-template-columns: 1fr; text-align:center; padding: 34px 26px; }
   .pricing-icon{ margin: 0 auto; }
